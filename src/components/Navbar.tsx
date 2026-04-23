@@ -68,6 +68,15 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
           >
             개최장소
           </button>
+          <button 
+            className={cn(
+              "text-on-surface transition-all duration-300 font-medium",
+              currentPage === 'contact' ? "text-primary" : "opacity-70 hover:opacity-100"
+            )}
+            onClick={() => onNavigate('contact')}
+          >
+            대회문의
+          </button>
         </div>
         
         <div className="flex items-center gap-4">
@@ -103,3 +112,4 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
     </header>
   );
 }
+
