@@ -1,13 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -20,8 +10,9 @@ import About from './components/About';
 import Program from './components/Program';
 import Venue from './components/Venue';
 import RegistrationForm from './components/RegistrationForm';
+import SideEvents from './components/SideEvents';
 
-export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration';
+export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration' | 'events';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -40,6 +31,8 @@ export default function App() {
         return <Venue />;
       case 'registration':
         return <RegistrationForm />;
+      case 'events':
+        return <SideEvents />;
       default:
         return (
           <>
@@ -63,5 +56,4 @@ export default function App() {
     </div>
   );
 }
-
 
