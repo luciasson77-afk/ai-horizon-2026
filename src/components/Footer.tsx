@@ -1,6 +1,11 @@
 import { Share2, Globe } from 'lucide-react';
+import { Page } from '../App';
 
-export default function Footer() {
+interface FooterProps {
+  onNavigate: (page: Page) => void;
+}
+
+export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-background w-full py-12 px-8 border-t border-primary/10">
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 font-body text-sm tracking-wide">
@@ -17,7 +22,14 @@ export default function Footer() {
           <div className="space-y-4">
             <h5 className="text-primary font-bold uppercase tracking-widest text-xs">리소스</h5>
             <ul className="space-y-2">
-              <li><a className="text-on-surface-variant hover:text-tertiary transition-colors duration-300" href="#">문의하기</a></li>
+              <li>
+                <button 
+                  className="text-on-surface-variant hover:text-tertiary transition-colors duration-300 text-left" 
+                  onClick={() => onNavigate('contact')}
+                >
+                  문의하기
+                </button>
+              </li>
               <li><a className="text-on-surface-variant hover:text-tertiary transition-colors duration-300" href="#">개인정보 처리방침</a></li>
             </ul>
           </div>
@@ -25,7 +37,7 @@ export default function Footer() {
             <h5 className="text-primary font-bold uppercase tracking-widest text-xs">법적 고지</h5>
             <ul className="space-y-2">
               <li><a className="text-on-surface-variant hover:text-tertiary transition-colors duration-300" href="#">이용 약관</a></li>
-              <li><a className="text-on-surface-variant hover:text-tertiary transition-colors duration-300" href="#">행사 날짜: 11월 12-15일</a></li>
+              <li><a className="text-on-surface-variant hover:text-tertiary transition-colors duration-300" href="#">행사 날짜: 12월 1-3일</a></li>
             </ul>
           </div>
         </div>
@@ -47,3 +59,4 @@ export default function Footer() {
     </footer>
   );
 }
+
