@@ -53,6 +53,15 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
           <button 
             className={cn(
               "text-on-surface transition-all duration-300 font-medium",
+              currentPage === 'events' ? "text-primary" : "opacity-70 hover:opacity-100"
+            )}
+            onClick={() => onNavigate('events')}
+          >
+            부대행사
+          </button>
+          <button 
+            className={cn(
+              "text-on-surface transition-all duration-300 font-medium",
               currentPage === 'venue' ? "text-primary" : "opacity-70 hover:opacity-100"
             )}
             onClick={() => onNavigate('venue')}
