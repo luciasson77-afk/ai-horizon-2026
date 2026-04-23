@@ -11,8 +11,9 @@ import Program from './components/Program';
 import Venue from './components/Venue';
 import RegistrationForm from './components/RegistrationForm';
 import SideEvents from './components/SideEvents';
+import Contact from './components/Contact';
 
-export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration' | 'events';
+export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration' | 'events' | 'contact';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -33,6 +34,8 @@ export default function App() {
         return <RegistrationForm />;
       case 'events':
         return <SideEvents />;
+      case 'contact':
+        return <Contact />;
       default:
         return (
           <>
@@ -52,8 +55,7 @@ export default function App() {
       <main className="pt-16">
         {renderContent()}
       </main>
-      <Footer />
+      <Footer onNavigate={setCurrentPage} />
     </div>
   );
 }
-
