@@ -12,8 +12,9 @@ import Venue from './components/Venue';
 import RegistrationForm from './components/RegistrationForm';
 import SideEvents from './components/SideEvents';
 import Contact from './components/Contact';
+import Exhibition from './components/Exhibition';
 
-export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration' | 'events' | 'contact';
+export type Page = 'home' | 'about' | 'program' | 'venue' | 'registration' | 'events' | 'contact' | 'exhibition';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -36,10 +37,15 @@ export default function App() {
         return <SideEvents />;
       case 'contact':
         return <Contact />;
+      case 'exhibition':
+        return <Exhibition onRegister={() => setCurrentPage('registration')} />;
       default:
         return (
           <>
-            <Hero onRegister={() => setCurrentPage('registration')} />
+            <Hero 
+              onRegister={() => setCurrentPage('registration')} 
+              onExhibitionClick={() => setCurrentPage('exhibition')}
+            />
             <BentoGrid />
             <Speakers />
             <Highlights />

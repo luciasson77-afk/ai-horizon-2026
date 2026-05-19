@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PlayCircle, X } from 'lucide-react';
+import { PlayCircle, X, ArrowRight } from 'lucide-react';
 
-export default function Hero({ onRegister }: { onRegister: () => void }) {
+export default function Hero({ 
+  onRegister,
+  onExhibitionClick
+}: { 
+  onRegister: () => void;
+  onExhibitionClick: () => void;
+}) {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
@@ -37,16 +43,43 @@ export default function Hero({ onRegister }: { onRegister: () => void }) {
           <p className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
             인간의 창의성과 합성 인지 기술이 융합되는 경험을 해보세요. 인공지능의 다음 시대를 정의하는 글로벌 서밋에 여러분을 초대합니다.
           </p>
-          <div className="flex flex-wrap gap-4 pt-4">
+
+          {/* AI 기술 혁신 전시회 소개창 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="p-6 rounded-3xl border border-primary/20 bg-primary/5 backdrop-blur-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-primary/45 hover:bg-primary/[0.08] transition-all max-w-xl shadow-lg shadow-primary/5"
+          >
+            <div className="space-y-1.5 text-left">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary text-on-primary uppercase tracking-wider">EVENT</span>
+                <span className="text-primary font-bold text-sm tracking-wide font-headline">부대행사 특별 모집</span>
+              </div>
+              <h3 className="text-xl font-bold text-on-surface font-headline">AI 기술 혁신 전시회</h3>
+              <p className="text-sm text-on-surface-variant leading-relaxed">
+                최첨단 AI 기술과 서비스를 선보이고 글로벌 네트워킹과 비즈니스 기회를 잡으세요. 기업 부스 참가 접수 중!
+              </p>
+            </div>
+            <button 
+              onClick={onExhibitionClick}
+              className="px-5 py-3 shrink-0 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-2xl font-bold text-sm hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-md shadow-primary/15 flex items-center gap-1.5 cursor-pointer"
+            >
+              전시회 안내 & 신청
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+
+          <div className="flex flex-wrap gap-4 pt-2">
             <button 
               onClick={onRegister}
-              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 cursor-pointer"
             >
               대회 참가 신청하기
             </button>
             <button 
               onClick={() => setShowVideo(true)}
-              className="px-8 py-4 bg-surface-variant/50 backdrop-blur-xl border border-primary/10 text-on-surface rounded-full font-bold hover:bg-surface-variant transition-all flex items-center gap-2"
+              className="px-8 py-4 bg-surface-variant/50 backdrop-blur-xl border border-primary/10 text-on-surface rounded-full font-bold hover:bg-surface-variant hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
             >
               <PlayCircle className="w-5 h-5" />
               미리보기 영상
