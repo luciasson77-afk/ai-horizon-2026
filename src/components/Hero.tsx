@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PlayCircle, X, ArrowRight } from 'lucide-react';
+import { PlayCircle, X, ArrowRight, Compass } from 'lucide-react';
 
 export default function Hero({ 
   onRegister,
-  onExhibitionClick
+  onExhibitionClick,
+  onTourClick
 }: { 
   onRegister: () => void;
   onExhibitionClick: () => void;
+  onTourClick: () => void;
 }) {
   const [showVideo, setShowVideo] = useState(false);
 
@@ -76,6 +78,13 @@ export default function Hero({
               className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 cursor-pointer"
             >
               대회 참가 신청하기
+            </button>
+            <button 
+              onClick={onTourClick}
+              className="px-8 py-4 bg-secondary/15 backdrop-blur-xl border border-secondary/25 hover:bg-secondary/35 text-on-surface rounded-full font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <Compass className="w-5 h-5 text-secondary animate-pulse" />
+              산업시찰 신청하기
             </button>
             <button 
               onClick={() => setShowVideo(true)}
