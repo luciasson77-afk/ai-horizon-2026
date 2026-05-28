@@ -105,9 +105,8 @@ export default function Hero({
           <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full"></div>
           <img 
             alt="AI Horizon Vision" 
-            className="w-full h-auto object-cover rounded-xl shadow-2xl relative z-10 mix-blend-lighten"
-            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200"
-            referrerPolicy="no-referrer"
+            className="w-full h-auto object-cover rounded-2xl shadow-2xl relative z-10 mix-blend-lighten"
+            src="/hero_ai_visual.png"
           />
         </motion.div>
       </div>
